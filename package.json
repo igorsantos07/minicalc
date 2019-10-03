@@ -1,0 +1,22 @@
+{
+  "name": "minicalc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.htm",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/igorsantos07/minicalc.git"
+  },
+  "author": "Igor Santos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/igorsantos07/minicalc/issues"
+  },
+  "homepage": "https://github.com/igorsantos07/minicalc#readme",
+  "dependencies": {
+    "bulma": "^0.7.5"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-pro": "^5.11.2"
+  }
+}

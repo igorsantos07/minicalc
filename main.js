@@ -17,6 +17,15 @@ function percent(value) {
   }).format(value)
 }
 
+if (location.protocol != 'chrome-extension:') {
+  const tag = document.createElement('script')
+  tag.type = 'text/javascript'
+  tag.src = 'https://kit.fontawesome.com/512ca77260.js'
+  tag.crossOrigin = 'anonymous'
+  document.head.appendChild(tag)
+}
+
+
 const rendAnterior = document.querySelector('#rend_anterior')
 const rendAtual    = document.querySelector('#rend_atual')
 const rendResReal  = document.querySelector('#rend_res_real')

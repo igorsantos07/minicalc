@@ -1,22 +1,29 @@
 {
   "name": "minicalc",
   "version": "1.0.0",
-  "description": "",
+  "description": "Small, everyday calculations for a financially organized person",
   "main": "index.htm",
+  "author": "Igor Santos",
+  "license": "ISC",
+  "homepage": "https://github.com/igorsantos07/minicalc#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/igorsantos07/minicalc.git"
   },
-  "author": "Igor Santos",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/igorsantos07/minicalc/issues"
   },
-  "homepage": "https://github.com/igorsantos07/minicalc#readme",
-  "dependencies": {
-    "bulma": "^0.7.5"
+  "engines": {
+    "npm": ">=8.0.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-pro": "^5.11.2"
+    "@sveltejs/vite-plugin-svelte": "^1.0.1",
+    "svelte": "^3.49.0",
+    "vite": "^3.0.7"
   }
 }

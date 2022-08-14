@@ -2,7 +2,7 @@
   "name": "minicalc",
   "version": "1.0.0",
   "description": "Small, everyday calculations for a financially organized person",
-  "main": "index.htm",
+  "main": "index.html",
   "author": "Igor Santos",
   "license": "ISC",
   "homepage": "https://github.com/igorsantos07/minicalc#readme",
@@ -23,7 +23,9 @@
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.1",
+    "sass": "^1.54.4",
     "svelte": "^3.49.0",
+    "svelte-preprocess": "^4.10.7",
     "vite": "^3.0.7"
   }
 }

@@ -1,0 +1,19 @@
+@use 'sass:color';
+@use '@material/theme/color-palette';
+@use '@material/theme/index' as theme with (
+  $primary: color-palette.$green-500, //100 for light, 700 for dark
+  $secondary: color-palette.$lime-900,
+  $surface: color-palette.$grey-50,
+  $background: color-palette.$grey-50,
+  $error: color-palette.$red-900
+);
+
+html, body {
+  background-color: theme.$background;
+  color: theme.$on-surface;
+}
+
+a {
+  color: theme.$secondary;
+  &:hover { color: theme.$lime-800; }
+}

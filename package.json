@@ -18,12 +18,19 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cd dist && zip -FS -r ../minicalc.zip . && cd ..",
-    "preview": "vite preview"
+    "build": "vite build && cd dist && zip -q -FS -r ../minicalc.zip . && cd ..",
+    "preview": "vite preview",
+    "theme": "npm run theme-light && npm run theme-dark",
+    "theme-light": "smui-theme compile public/theme-light.css -i src/theme/light",
+    "theme-dark": "smui-theme compile public/theme-dark.css -i src/theme/dark"
   },
   "devDependencies": {
+    "@smui/tab": "^6.0.0",
+    "@smui/tab-bar": "^6.0.0",
     "@sveltejs/vite-plugin-svelte": "^1.0.1",
+    "lodash-es": "^4.17.21",
     "sass": "^1.54.4",
+    "smui-theme": "^6.0.0",
     "svelte": "^3.49.0",
     "svelte-preprocess": "^4.10.7",
     "svelte-spa-router": "^3.3.0",

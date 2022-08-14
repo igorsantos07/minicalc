@@ -16,3 +16,4 @@ O projeto é empacotado como uma extensão pro Chrome, mas também é acessível
 - `npm run dev`: dev server
   - `npm run dev -- --host`: aberto na rede
 - `npm run build`: compila o JS e cria o ZIP pra enviar pro [Chrome Web Store Dev Console](https://chrome.google.com/webstore/devconsole)
+- `npm run theme`: [compila o CSS do tema do Material UI](https://sveltematerialui.com/THEMING.md#building-your-theme). Necessário executar sempre que adicionar algum componente novo do SMUI, e quando clonar o projeto (os CSS gerados dificilmente mudam, mas estão ignorados).

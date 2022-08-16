@@ -1,10 +1,12 @@
-import Home from './Home.svelte'
-import Diff from './Diff.svelte'
 import { fromPairs, map, mapValues } from 'lodash-es'
+import Diff from './Diff.svelte'
+import Home from './Home.svelte'
+import Interest from './Interest.svelte'
 
 const routes = {
   '/'    : ['Home', Home],
-  '/diff': ['Diferença', Diff],
+  '/diff': ['Diferença', Diff], //icon idea: +/-
+  '/juros': ['Juros', Interest], //icon idea: %
 }
 
 /**

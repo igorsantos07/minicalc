@@ -33,13 +33,29 @@ input[type=number] {
 //endregion
 
 .mdc-form-field {
-  margin: 0.5rem 0;
+  margin: 0.25rem 0;
+}
+
+.mdc-text-field {
+  $margin: 0.375rem;
+  &__input {
+    margin-left: $margin;
+    &[type=number] { font-family: $font-mono }
+  }
+  &__affix--suffix {
+    margin-right: $margin;
+    .mdc-icon-button { margin-right: -$margin }
+  }
+  &__affix--prefix {
+    margin-left: $margin;
+    + .mdc-text-field__input { margin-left: 0 }
+  }
 }
 
 .mdc-data-table {
   &__cell {
-    &[role=header] { font-weight: bold; }
-    &--numeric { font-family: $font-mono; }
+    &[role=header] { font-weight: bold }
+    &--numeric { font-family: $font-mono }
   }
-  &--glass { background-color: rgba(255,255,255,0.5); }
+  &--glass { background-color: rgba(255,255,255,0.5) }
 }

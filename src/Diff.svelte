@@ -1,7 +1,7 @@
 <script>
-  import Paper, { Content, Subtitle, Title } from '@smui/paper'
   import DataTable, { Cell, Row } from '@smui/data-table'
-  import InputNumber from './components/InputNumber.svelte'
+  import Paper, { Content, Subtitle, Title } from '@smui/paper'
+  import InputNumber from './components/form/InputNumber.svelte'
   import Cash from './components/num/Cash.svelte'
   import Pct from './components/num/Pct.svelte'
 
@@ -23,6 +23,7 @@
     <InputNumber label="Valor atual" prefix full bind:value={newValue}/>
   </Paper>
 
+  <!-- FIXME replace this with the Results component -->
   <Paper square color={hasResult? (yay? 'success' : 'error') : 'disabled'} elevation={hasResult? 10 : 0}>
     <Title>
       Resultados

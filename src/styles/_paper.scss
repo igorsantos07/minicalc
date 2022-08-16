@@ -1,0 +1,38 @@
+@use '@material/theme/index' as theme;
+@use '@smui/paper/mixins' as paper;
+
+@mixin paper-color($name, $bg, $ink: null, $shadow: null) {
+  @if not $ink {
+    $ink: theme.accessible-ink-color($bg);
+  }
+  @include paper.paper-color($name, $bg, $ink);
+
+  //override the shadow already defined in paper.paper-color()
+  @if $shadow {
+    .smui-paper.smui-paper--color-#{$name}.smui-paper--raised {
+      @include paper.paper-elevation($shadow);
+    }
+  }
+}
+
+@include paper-color(disabled, theme.$grey-200, theme.$grey-600, theme.$grey-500);
+@include paper-color(success, theme.$green-200);
+@include paper-color(error, theme.$red-200);
+
+.smui-paper {
+  + .smui-paper {
+    margin-top: 1rem;
+  }
+  & &__title {
+    font-weight: 500;
+  }
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  &__title &__subtitle {
+    margin-bottom: 0;
+  }
+}

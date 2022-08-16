@@ -3,9 +3,13 @@
   import * as Routes from './routes'
   import TabBar from '@smui/tab-bar'
   import Tab, { Label } from '@smui/tab'
+  import { omit } from 'lodash-es'
 
-  const tabs = Routes.forNavigating()
-  let active = Object.entries(tabs).find(([, path]) => path === $location)[0]
+  const tabs = omit(Routes.forNavigating(), ['Home'])
+  let active = Object.entries(tabs).find(([, path]) => path === $location)
+  active = active? active[0] : ''
+
+  $: document.title = `${active} [MiniCalc]`
 </script>
 
 <TabBar tabs={Object.keys(tabs)} let:tab bind:active>
@@ -14,4 +18,6 @@
   </Tab>
 </TabBar>
 
-<Router routes={Routes.forRouting()}/>
+<main style="display: flex; justify-content: center">
+  <Router routes={Routes.forRouting()}/>
+</main>

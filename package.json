@@ -21,12 +21,17 @@
     "build": "vite build && cd dist && zip -q -FS -r ../minicalc.zip . && cd ..",
     "preview": "vite preview",
     "theme": "npm run theme-light && npm run theme-dark",
-    "theme-light": "smui-theme compile public/theme-light.css -i src/theme/light",
-    "theme-dark": "smui-theme compile public/theme-dark.css -i src/theme/dark"
+    "theme-light": "smui-theme compile public/theme-light.css -i src/styles/theme/light",
+    "theme-dark": "smui-theme compile public/theme-dark.css -i src/styles/theme/dark"
   },
   "devDependencies": {
+    "@material/typography": "^14.0.0",
+    "@smui/data-table": "^6.0.0",
+    "@smui/form-field": "^6.0.0",
+    "@smui/paper": "^6.0.0",
     "@smui/tab": "^6.0.0",
     "@smui/tab-bar": "^6.0.0",
+    "@smui/textfield": "^6.0.0",
     "@sveltejs/vite-plugin-svelte": "^1.0.1",
     "lodash-es": "^4.17.21",
     "sass": "^1.54.4",

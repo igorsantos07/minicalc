@@ -20,6 +20,7 @@
 @include paper-color(error, theme.$red-200);
 
 .smui-paper {
+  padding: 1rem;
   + .smui-paper { margin-top: 1rem }
 
   & &__title {
@@ -30,5 +31,8 @@
   }
   &__title &__subtitle {
     margin-bottom: 0;
+    margin-left: 12px;
+    font-size: 13px;
+    font-style: italic;
   }
 }

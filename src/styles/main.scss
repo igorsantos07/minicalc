@@ -1,3 +1,4 @@
+@use '@material/theme/color-palette';
 @import 'paper';
 @import 'typography';
 
@@ -38,4 +39,9 @@ input[type=number] {
     &--numeric { font-family: $monospace }
   }
   &--glass { background-color: rgba(255,255,255,0.5) }
+}
+
+.mdc-tooltip {
+  &__surface { background-color: rgba(0,0,0,0.8) }
+  a { color: color-palette.$lime-200 }
 }

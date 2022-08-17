@@ -1,6 +1,13 @@
 <script>
   import Paper from '@smui/paper'
+  import Description from './_Description.svelte'
+
+  export let desc
 </script>
+
+{#if desc}
+  <Description>{desc}</Description>
+{/if}
 
 <main>
   <Paper elevation="3">
@@ -24,7 +31,7 @@
 
     :global .smui-paper {
       &:first-of-type {
-        width: 200px;
+        width: 240px;
         max-width: 300px;
         @include breakpoint-big { margin-right: 20px; }
       }

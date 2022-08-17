@@ -16,4 +16,6 @@
   }
 </script>
 
-<Input type="number" {label} {full} {prefix} {suffix} {min} {step} {autoFocus} {variant} bind:value/>
+<Input type="number" {label} {full} {prefix} {suffix} {min} {step} {autoFocus} {variant} bind:value>
+  <svelte:fragment slot="helper"><slot name="helper"/></svelte:fragment>
+</Input>

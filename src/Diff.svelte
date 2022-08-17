@@ -14,10 +14,10 @@
   }
 </script>
 
-<Content>
+<Content desc="Qual foi o resultado do investimento no último período? 🤔">
   <svelte:fragment slot="input">
-    <InputNumber label="Valor anterior" prefix full autoFocus bind:value={oldValue}/>
-    <InputNumber label="Valor atual" prefix full bind:value={newValue}/>
+    <InputNumber label="Valor anterior" prefix autoFocus bind:value={oldValue}/>
+    <InputNumber label="Valor atual" prefix bind:value={newValue}/>
   </svelte:fragment>
 
   <Results slot="output" {hasResult} {yay} subtitle={hasResult? (yay? 'Yay! 🎉' : 'Whoops... 👀') : ''}>

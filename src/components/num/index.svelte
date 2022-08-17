@@ -11,6 +11,7 @@
 
 <script>
   export let n
+  export let prefix = ''
   /** @type "cash"|"pct" */
   export let type
 
@@ -23,4 +24,4 @@
   }
 </script>
 
-<output>{fmt.format(n)}</output>
+<output>{prefix} {fmt.format(n)}</output>

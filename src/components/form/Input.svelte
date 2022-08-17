@@ -9,10 +9,8 @@
              suffix = null,
              input = null,
              autoFocus = false,
-             full = false,
              value = null,
              variant = null
-  let style = full? 'width:100%' : ''
 
   //anything undeclared can be passed directly to the input, thus, we need to prefix it
   const inputRestProps = mapKeys($$restProps, (_, key) => `input$${key}`)
@@ -25,11 +23,23 @@
   })
 </script>
 
-<FormField {style}>
+<FormField>
   <Textfield
-    {style} variant={variant || 'filled'}
+    variant={variant || 'filled'}
     {prefix} {suffix} {type} {label} {...inputRestProps} bind:value bind:input on:change
   >
     <svelte:fragment slot="suffix"><slot name="suffix"/></svelte:fragment>
+    <svelte:fragment slot="helper"><slot name="helper"/></svelte:fragment>
   </Textfield>
 </FormField>
+
+<style lang="scss">
+  :global {
+    .mdc-form-field {
+      //respecting helper text (not sure why those rules should be really needed, but...)
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .mdc-form-field, .mdc-text-field { width: 100% }
+  }
+</style>

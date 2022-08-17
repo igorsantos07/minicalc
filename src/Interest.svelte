@@ -2,10 +2,10 @@
   import { differenceInBusinessDays, differenceInDays } from 'date-fns'
   import InputDate from './components/form/InputDate.svelte'
   import InputNumber from './components/form/InputNumber.svelte'
-  import Content, { Cash, Description, Pct, Results } from './components/layout/Content'
+  import Content, { Cash, Pct, Results } from './components/layout/Content'
   import { interestYtoD, irpf } from './util'
 
-  let start, end, initial, pct, cdi = 13.25
+  let start, end, initial, pct, cdi = 13.65
   let grossPerYear, gross, net, days, workDays, result, total, hasResult, subtitle
 
   $: if (start && end) {
@@ -25,16 +25,14 @@
   }
 </script>
 
-<Description>Calcula o rendimento e juros pelo CDI entre duas datas.</Description>
-
-<Content>
+<Content desc="Rendimento e juros, pelo CDI, entre duas datas.">
   <svelte:fragment slot="input">
-    <InputNumber label="CDI" suffix="%" full variant="outlined" bind:value={cdi}/>
+    <InputNumber label="CDI" suffix="%" variant="outlined" bind:value={cdi}/>
     <hr/>
-    <InputDate label="Data inicial" full autoFocus bind:date={start}/>
-    <InputDate label="Data final" full bind:date={end}/>
-    <InputNumber label="Valor inicial" prefix full bind:value={initial}/>
-    <InputNumber label="Percentual do CDI" suffix="%" full bind:value={pct}/>
+    <InputDate label="Data inicial" autoFocus bind:date={start}/>
+    <InputDate label="Data final" bind:date={end}/>
+    <InputNumber label="Valor inicial" prefix bind:value={initial}/>
+    <InputNumber label="Percentual do CDI" suffix="%" bind:value={pct}/>
   </svelte:fragment>
 
   <Results slot="output" {hasResult} subtitle={workDays? `${workDays} ${subtitle}` : ''}>

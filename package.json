@@ -36,6 +36,7 @@
     "@smui/tab": "^6.0.0",
     "@smui/tab-bar": "^6.0.0",
     "@smui/textfield": "^6.0.0",
+    "@smui/tooltip": "^6.0.0",
     "@sveltejs/vite-plugin-svelte": "^1.0.1",
     "date-fns": "^2.29.1",
     "lodash-es": "^4.17.21",

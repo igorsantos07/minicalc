@@ -1,7 +1,7 @@
 <script>
   import Num from './index.svelte'
 
-  export let n
+  export let prefix, n
 </script>
 
-<Num type="cash" {n}/>
+<Num type="cash" {prefix} {n}/>

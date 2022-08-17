@@ -7,15 +7,17 @@
   import Tooltip from './components/Tooltip.svelte'
   import { interestYtoD, irpf } from './util'
 
+  let sameDates
   let useCDI = true, start, end, initial, pct, cdi = 13.65
   let grossPerYear, gross, net, days, workDays, result, total, hasResult, subtitle
 
   $: if (start && end) {
-    workDays = differenceInBusinessDays(end, start)
-    days     = differenceInDays(end, start)
-    subtitle = workDays > 1 ? 'dias úteis' : 'dia útil'
+    workDays  = Math.abs(differenceInBusinessDays(end, start))
+    days      = Math.abs(differenceInDays(end, start))
+    subtitle  = workDays > 1 ? 'dias úteis' : 'dia útil'
+    sameDates = (workDays === 0)
   }
-  $: if (days && initial && pct && (!useCDI || cdi > 0)) {
+  $: if (workDays !== undefined && initial && pct && (!useCDI || cdi > 0)) {
     hasResult    = true
     grossPerYear =  (useCDI? cdi / 100 : 1) * (pct / 100)
     gross        = ((1+interestYtoD(grossPerYear)) ** workDays) - 1
@@ -39,13 +41,16 @@
     </TwoSidedSwitch>
     <InputNumber label="CDI" suffix="%" variant="outlined" bind:value={cdi} disabled={!useCDI}/>
     <hr/>
-    <InputDate label="Data inicial" autoFocus bind:date={start}/>
-    <InputDate label="Data final" bind:date={end}/>
+    <InputDate label="Data inicial" autoFocus bind:date={start} invalid={sameDates}/>
+    <InputDate label="Data final" bind:date={end} invalidMsg={sameDates && 'As datas são... iguais?'}/>
     <InputNumber label="Valor inicial" prefix bind:value={initial}/>
     <InputNumber label={useCDI?'Percentual do CDI':'Juros anual'} suffix="%" bind:value={pct}/>
   </svelte:fragment>
 
-  <Results slot="output" {hasResult} subtitle={workDays? `${workDays} ${subtitle}` : ''}>
+  <Results slot="output" {hasResult}>
+    <span slot="subtitle" class={sameDates && 'text-bold text-error'}>
+      {#if workDays !== undefined}{workDays} {subtitle}{/if}
+    </span>
     <Pct n={grossPerYear} title="Juros anual"/>
     <Pct n={net} title="Juros líquido"/>
     <Cash n={result} title="Rendimento"/>

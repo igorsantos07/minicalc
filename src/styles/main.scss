@@ -2,6 +2,12 @@
 @import 'paper';
 @import 'typography';
 
+html, body {
+  background-color: var(--theme-background);
+  color: var(--theme-on-surface);
+}
+a { color: var(--theme-secondary); }
+
 //region remove input[type=number] spinners
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

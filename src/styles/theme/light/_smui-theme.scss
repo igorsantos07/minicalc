@@ -7,13 +7,16 @@
   $background: color-palette.$grey-50,
   $error: color-palette.$red-900
 );
-
-html, body {
-  background-color: theme.$background;
-  color: theme.$on-surface;
+:root {
+  --theme-background: #{theme.$background};
+  --theme-error: #{theme.$error};
+  --theme-primary: #{theme.$primary};
+  --theme-on-error: #{theme.$on-error};
+  --theme-on-primary: #{theme.$on-primary};
+  --theme-on-secondary: #{theme.$on-secondary};
+  --theme-on-surface: #{theme.$on-surface};
+  --theme-secondary: #{theme.$secondary};
+  --theme-surface: #{theme.$surface};
 }
 
-a {
-  color: theme.$secondary;
-  &:hover { color: theme.$lime-800; }
-}
+a:hover { color: theme.$lime-800 }

@@ -1,11 +1,11 @@
 const BUSINESS_DAYS_PER_YEAR = 252
 
 export function interestYtoD(interest) {
-  return Math.pow(interest + 1, 1 / BUSINESS_DAYS_PER_YEAR) - 1
+  return (interest + 1) ** (1 / BUSINESS_DAYS_PER_YEAR) - 1
 }
 
 export function interestYtoM(interest) {
-  return Math.pow(interest + 1, 1 / 12) - 1
+  return (interest + 1) ** (1 / 12) - 1
 }
 
 export function irpf(days) {

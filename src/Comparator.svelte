@@ -70,6 +70,7 @@
     </section>
   </svelte:fragment>
 
+  <!--  FIXME: sort the results, maybe colorize then, and show in-between the difference between each position -->
   <Results slot="output" {hasResult}
            tooltipTitle='"Tá diferente do que eu vi em outro site!"'
            tooltip="Isso é esperado, visto que há diferentes metodologias de calcular o rendimento final... <em>São 30 ou 31 dias no mês? E dias úteis, 20, 21 ou 22? E no ano? Como considerar o juros mensal ou anual vs. dias no período investido?</em><br/>O importante é que a comparação vai estar precisa, visto que todos os valores aqui usam a mesma metodologia 🙃">

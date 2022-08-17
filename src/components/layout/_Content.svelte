@@ -2,10 +2,12 @@
   import Paper from '@smui/paper'
   import Description from './_Description.svelte'
 
-  export let desc
+  export let desc = null
 </script>
 
-{#if desc}
+{#if $$slots.desc}
+  <Description><slot name="desc"/></Description>
+{:else if desc}
   <Description>{desc}</Description>
 {/if}
 

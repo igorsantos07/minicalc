@@ -6,7 +6,6 @@
 @import '@fontsource/roboto/700.css'; //bold
 @import '@fontsource/roboto-mono/400.css'; //normal
 @import '@fontsource/roboto-mono/700.css'; //bold
-
 $monospace: Roboto Mono, monospace;
 
 //TODO wtf, there's no reset CSS? Those heading elements have HUGE margins by default!!!!
@@ -28,3 +27,6 @@ small { @extend .mdc-typography--body2 }
 legend, caption { @extend .mdc-typography--caption }
 
 output { font-family: $monospace; }
+
+.text-error { color: var(--theme-error) }
+.text-bold { font-weight: bold }

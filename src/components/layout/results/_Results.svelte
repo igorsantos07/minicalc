@@ -10,7 +10,7 @@
   export let hasResult = false
   export let yay = true
   export let subtitle
-  export let tooltip, tooltipTitle
+  export let tooltip = null, tooltipTitle = null
 </script>
 
 <Paper square color={hasResult? (yay? 'success' : 'error') : 'disabled'} elevation={hasResult? 10 : 0}>

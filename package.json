@@ -28,6 +28,7 @@
     "@fontsource/roboto": "^4.5.8",
     "@fontsource/roboto-mono": "^4.5.8",
     "@material/typography": "^14.0.0",
+    "@smui/banner": "^6.0.0",
     "@smui/data-table": "^6.0.0",
     "@smui/form-field": "^6.0.0",
     "@smui/icon-button": "^6.0.0",

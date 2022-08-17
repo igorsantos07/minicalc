@@ -25,7 +25,7 @@
         <slot/>
       </DataTable>
     {:else}
-      <small><em>Preencha os valores acima</em> 🙃</small>
+      <small><em>Preencha os valores primeiro</em> 🙃</small>
     {/if}
   </Content>
 </Paper>

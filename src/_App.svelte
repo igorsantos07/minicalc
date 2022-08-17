@@ -1,9 +1,9 @@
 <script>
+  import Tab, { Label } from '@smui/tab'
+  import TabBar from '@smui/tab-bar'
+  import { omit } from 'lodash-es'
   import Router, { location } from 'svelte-spa-router'
   import * as Routes from './routes'
-  import TabBar from '@smui/tab-bar'
-  import Tab, { Label } from '@smui/tab'
-  import { omit } from 'lodash-es'
 
   const tabs = omit(Routes.forNavigating(), ['Home'])
   let active = Object.entries(tabs).find(([, path]) => path === $location)
@@ -18,6 +18,4 @@
   </Tab>
 </TabBar>
 
-<main style="display: flex; justify-content: center">
-  <Router routes={Routes.forRouting()}/>
-</main>
+<Router routes={Routes.forRouting()}/>

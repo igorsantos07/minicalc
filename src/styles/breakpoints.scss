@@ -1,0 +1,11 @@
+@mixin breakpoint-tiny() {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
+
+@mixin breakpoint-big() {
+  @media (min-width: 376px) {
+    @content;
+  }
+}

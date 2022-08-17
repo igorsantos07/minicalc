@@ -1,7 +1,6 @@
 <script>
-  import Paper from '@smui/paper'
   import InputNumber from './components/form/InputNumber.svelte'
-  import Results, { CashResult, PctResult } from './components/results'
+  import Content, { Cash, Pct, Results } from './components/layout/Content'
 
   let oldValue, newValue, result, pct, hasResult, yay
 
@@ -15,14 +14,14 @@
   }
 </script>
 
-<main style="max-width: 300px">
-  <Paper elevation="3">
+<Content>
+  <svelte:fragment slot="input">
     <InputNumber label="Valor anterior" prefix full autoFocus bind:value={oldValue}/>
     <InputNumber label="Valor atual" prefix full bind:value={newValue}/>
-  </Paper>
+  </svelte:fragment>
 
-  <Results {hasResult} {yay} subtitle={hasResult? (yay? 'Yay! 🎉' : 'Whoops... 👀') : ''}>
-    <CashResult title="Rendimento" n={result}/>
-    <PctResult title="Percentual" n={pct}/>
+  <Results slot="output" {hasResult} {yay} subtitle={hasResult? (yay? 'Yay! 🎉' : 'Whoops... 👀') : ''}>
+    <Cash title="Rendimento" n={result}/>
+    <Pct title="Percentual" n={pct}/>
   </Results>
-</main>
+</Content>

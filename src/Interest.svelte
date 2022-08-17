@@ -1,11 +1,8 @@
 <script>
-  import Paper from '@smui/paper'
   import { differenceInBusinessDays, differenceInDays } from 'date-fns'
   import InputDate from './components/form/InputDate.svelte'
   import InputNumber from './components/form/InputNumber.svelte'
-  import Cash from './components/num/Cash.svelte'
-  import Pct from './components/num/Pct.svelte'
-  import Results, { Result } from './components/results'
+  import Content, { Cash, Description, Pct, Results } from './components/layout/Content'
   import { interestYtoD, irpf } from './util'
 
   let start, end, initial, pct, cdi = 13.25
@@ -28,21 +25,21 @@
   }
 </script>
 
-<!-- TODO: make this <main> a standard in all screens and make it a two-column layout on larger screens -->
-<main style="max-width: 300px">
-  <p>Calcular o rendimento e juros pelo CDI entre duas datas</p>
-  <Paper elevation="3">
+<Description>Calcula o rendimento e juros pelo CDI entre duas datas.</Description>
+
+<Content>
+  <svelte:fragment slot="input">
     <InputDate label="Data inicial" full autoFocus bind:date={start}/>
     <InputDate label="Data final" full bind:date={end}/>
     <InputNumber label="Valor inicial" prefix full bind:value={initial}/>
     <InputNumber label="CDI" suffix="%" full bind:value={cdi}/>
     <InputNumber label="Percentual do CDI" suffix="%" full bind:value={pct}/>
-  </Paper>
+  </svelte:fragment>
 
-  <Results {hasResult} subtitle={workDays? `${workDays} ${subtitle}` : ''}>
-    <Result type={Pct} n={grossPerYear} title="Juros anual"/>
-    <Result type={Pct} n={net} title="Juros líquido"/>
-    <Result type={Cash} n={result} title="Rendimento"/>
-    <Result type={Cash} n={total} title="Total"/>
+  <Results slot="output" {hasResult} subtitle={workDays? `${workDays} ${subtitle}` : ''}>
+    <Pct n={grossPerYear} title="Juros anual"/>
+    <Pct n={net} title="Juros líquido"/>
+    <Cash n={result} title="Rendimento"/>
+    <Cash n={total} title="Total"/>
   </Results>
-</main>
+</Content>

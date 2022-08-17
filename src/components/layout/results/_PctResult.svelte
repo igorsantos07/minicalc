@@ -1,5 +1,5 @@
 <script>
-  import Pct from '../num/Pct.svelte'
+  import Pct from '../../num/Pct.svelte'
   import Result from './_Result.svelte'
 </script>
 

@@ -17,4 +17,3 @@
     <IconButton size="button" on:click={() => input.getElement().showPicker()}>📆</IconButton>
   </Suffix>
 </Input>
-

@@ -1,0 +1,29 @@
+@use '@material/typography/mdc-typography';
+
+@import '@fontsource/roboto/400.css'; //normal
+@import '@fontsource/roboto/500.css'; //semi-bold (result titles)
+@import '@fontsource/roboto/700.css'; //bold
+@import '@fontsource/roboto-mono/400.css'; //normal
+@import '@fontsource/roboto-mono/700.css'; //bold
+
+$monospace: Roboto Mono, monospace;
+
+//TODO wtf, there's no reset CSS? Those heading elements have HUGE margins by default!!!!
+//TODO wtf, do we really need to do all this to have standard styling without having to class EVERYTHING??
+body { @extend .mdc-typography }
+h1 { @extend .mdc-typography--headline1 }
+h2 { @extend .mdc-typography--headline2 }
+h3 { @extend .mdc-typography--headline3 }
+h4 { @extend .mdc-typography--headline4 }
+h5 { @extend .mdc-typography--headline5 }
+h6 { @extend .mdc-typography--headline6 }
+p { @extend .mdc-typography--body1 }
+p, h2, h3, h4, h5, h6 {
+  &.subtitle { @extend .mdc-typography--subtitle1 }
+  &.subsubtitle { @extend .mdc-typography--subtitle2 }
+  &.overline { @extend .mdc-typography--overline }
+}
+small { @extend .mdc-typography--body2 }
+legend, caption { @extend .mdc-typography--caption }
+
+output { font-family: $monospace; }

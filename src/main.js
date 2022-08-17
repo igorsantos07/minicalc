@@ -1,10 +1,10 @@
-import './styles/main.scss'
 import 'svelte'
 import App from './App.svelte'
+import './styles/main.scss'
 
 const app = new App({
   target: document.getElementsByTagName('body')[0],
-  // hydrate: true //TODO saw this in some examples, but not sure of what it is yet?
+  // hydrate: true //used in a lot of examples - this is just an instruction on how to handle components from SSR
 })
 
 export default app

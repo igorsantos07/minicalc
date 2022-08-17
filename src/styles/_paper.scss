@@ -20,17 +20,13 @@
 @include paper-color(error, theme.$red-200);
 
 .smui-paper {
-  + .smui-paper {
-    margin-top: 1rem;
-  }
-  & &__title {
-    font-weight: 500;
-  }
+  + .smui-paper { margin-top: 1rem }
 
-  &__title {
+  & &__title {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    font-weight: 500;
   }
   &__title &__subtitle {
     margin-bottom: 0;

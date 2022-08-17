@@ -1,25 +1,5 @@
-@use '@material/typography/mdc-typography';
 @import 'paper';
-
-$font-mono: Roboto Mono, monospace;
-
-//TODO wtf, there's no reset CSS? Those heading elements have HUGE margins by default!!!!
-//TODO wtf, do we really need to do all this to have standard styling without having to class EVERYTHING??
-body { @extend .mdc-typography }
-h1 { @extend .mdc-typography--headline1 }
-h2 { @extend .mdc-typography--headline2 }
-h3 { @extend .mdc-typography--headline3 }
-h4 { @extend .mdc-typography--headline4 }
-h5 { @extend .mdc-typography--headline5 }
-h6 { @extend .mdc-typography--headline6 }
-p { @extend .mdc-typography--body1 }
-p, h2, h3, h4, h5, h6 {
-  &.subtitle { @extend .mdc-typography--subtitle1 }
-  &.subsubtitle { @extend .mdc-typography--subtitle2 }
-  &.overline { @extend .mdc-typography--overline }
-}
-small { @extend .mdc-typography--body2 }
-legend, caption { @extend .mdc-typography--caption }
+@import 'typography';
 
 //region remove input[type=number] spinners
 input::-webkit-outer-spin-button,
@@ -40,7 +20,7 @@ input[type=number] {
   $margin: 0.375rem;
   &__input {
     margin-left: $margin;
-    &[type=number] { font-family: $font-mono }
+    &[type=number] { font-family: $monospace }
   }
   &__affix--suffix {
     margin-right: $margin;
@@ -55,7 +35,7 @@ input[type=number] {
 .mdc-data-table {
   &__cell {
     &[role=header] { font-weight: bold }
-    &--numeric { font-family: $font-mono }
+    &--numeric { font-family: $monospace }
   }
   &--glass { background-color: rgba(255,255,255,0.5) }
 }

@@ -29,10 +29,11 @@
 
 <Content>
   <svelte:fragment slot="input">
+    <InputNumber label="CDI" suffix="%" full variant="outlined" bind:value={cdi}/>
+    <hr/>
     <InputDate label="Data inicial" full autoFocus bind:date={start}/>
     <InputDate label="Data final" full bind:date={end}/>
     <InputNumber label="Valor inicial" prefix full bind:value={initial}/>
-    <InputNumber label="CDI" suffix="%" full bind:value={cdi}/>
     <InputNumber label="Percentual do CDI" suffix="%" full bind:value={pct}/>
   </svelte:fragment>
 

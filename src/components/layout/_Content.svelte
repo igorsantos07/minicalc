@@ -12,6 +12,7 @@
 
 <style lang="scss">
   @import '../../styles/breakpoints';
+
   main {
     display: flex;
     justify-content: center;
@@ -26,6 +27,11 @@
         width: 200px;
         max-width: 300px;
         @include breakpoint-big { margin-right: 20px; }
+      }
+      hr {
+        margin: 8px -18px;
+        color: black;
+        opacity: 0.5;
       }
     }
   }

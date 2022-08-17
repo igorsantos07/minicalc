@@ -8,11 +8,12 @@
              full = false,
              prefix = null,
              suffix = null,
-             value = null
+             value = null,
+             variant = null
 
   if (prefix === true) {
     prefix = 'R$'
   }
 </script>
 
-<Input type="number" {label} {full} {prefix} {suffix} {min} {step} {autoFocus} bind:value/>
+<Input type="number" {label} {full} {prefix} {suffix} {min} {step} {autoFocus} {variant} bind:value/>

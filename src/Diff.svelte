@@ -1,9 +1,7 @@
 <script>
-  import DataTable, { Cell, Row } from '@smui/data-table'
-  import Paper, { Content, Subtitle, Title } from '@smui/paper'
+  import Paper from '@smui/paper'
   import InputNumber from './components/form/InputNumber.svelte'
-  import Cash from './components/num/Cash.svelte'
-  import Pct from './components/num/Pct.svelte'
+  import Results, { CashResult, PctResult } from './components/results'
 
   let oldValue, newValue, result, pct, hasResult, yay
 
@@ -23,27 +21,8 @@
     <InputNumber label="Valor atual" prefix full bind:value={newValue}/>
   </Paper>
 
-  <!-- FIXME replace this with the Results component -->
-  <Paper square color={hasResult? (yay? 'success' : 'error') : 'disabled'} elevation={hasResult? 10 : 0}>
-    <Title>
-      Resultados
-      {#if hasResult}<Subtitle><em>{yay? 'Yay! 🎉' : 'Whoops... 👀'}</em></Subtitle>{/if}
-    </Title>
-    <Content>
-      {#if hasResult}
-        <DataTable class="mdc-data-table--glass">
-          <Row>
-            <Cell>Rendimento</Cell>
-            <Cell numeric><h6 style:margin="0"><Cash n={result}/></h6></Cell>
-          </Row>
-          <Row>
-            <Cell>Percentual</Cell>
-            <Cell numeric><h6 style:margin="0"><Pct n={pct}/></h6></Cell>
-          </Row>
-        </DataTable>
-      {:else}
-        <small><em>Preencha os valores acima</em> 🙃</small>
-      {/if}
-    </Content>
-  </Paper>
+  <Results {hasResult} {yay} subtitle={hasResult? (yay? 'Yay! 🎉' : 'Whoops... 👀') : ''}>
+    <CashResult title="Rendimento" n={result}/>
+    <PctResult title="Percentual" n={pct}/>
+  </Results>
 </main>

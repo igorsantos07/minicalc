@@ -2,7 +2,7 @@
   import DataTable from '@smui/data-table'
   import Paper, { Content, Subtitle, Title } from '@smui/paper'
 
-  import Result from './Result.svelte'
+  import Result from './_Result.svelte'
 
   export { Result }
 

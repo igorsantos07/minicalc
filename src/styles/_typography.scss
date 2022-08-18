@@ -6,7 +6,10 @@
 @import '@fontsource/roboto/latin-700.css'; //bold
 @import '@fontsource/roboto-mono/latin-400.css'; //normal
 @import '@fontsource/roboto-mono/latin-700.css'; //bold
-$monospace: Roboto Mono, monospace;
+
+:root {
+  --monospace: Roboto Mono, monospace;
+}
 
 //TODO wtf, there's no reset CSS? Those heading elements have HUGE margins by default!!!!
 //TODO wtf, do we really need to do all this to have standard styling without having to class EVERYTHING??
@@ -26,7 +29,7 @@ p, h2, h3, h4, h5, h6 {
 small { @extend .mdc-typography--body2 }
 legend, caption { @extend .mdc-typography--caption }
 
-output { font-family: $monospace; }
+output { font-family: var(--monospace); }
 
 .text-error { color: var(--theme-error) }
 .text-bold { font-weight: bold }

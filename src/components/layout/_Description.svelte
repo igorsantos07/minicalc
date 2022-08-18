@@ -4,22 +4,25 @@
   let open = true
 </script>
 
-<Banner bind:open centered fixed>
+<Banner bind:open centered id="top-info">
   <svelte:fragment slot="icon">Info</svelte:fragment>
   <Label slot="label"><em><slot/></em></Label>
-<!--  <svelte:fragment slot="actions">&times;</svelte:fragment>-->
+  <svelte:fragment slot="actions"><button/></svelte:fragment>
+  <!-- see https://github.com/hperrin/svelte-material-ui/pull/498 -->
 </Banner>
 
 <style lang="scss">
-@import '../../styles/typography';
-:global .mdc-banner {
-  & &__graphic {
+:global #top-info {
+  .mdc-banner__graphic {
      $padding: 12px;
      padding-top: $padding;
      height: 40px - $padding;
-     font: 12px $monospace;
+     font: 12px var(--monospace);
    }
-  & &__content { max-width: max-content }
-  & &__text { margin: 0 12px } //skips the right margin for the action buttons
+  .mdc-banner__content { max-width: max-content }
+  .mdc-banner__text { margin: 0 12px } //skips the right margin for the action buttons
+
+  //https://github.com/hperrin/svelte-material-ui/pull/498
+  .mdc-banner__actions { width: 20px; padding: 0; position: absolute; right: 2000px; }
 }
 </style>

@@ -9,7 +9,7 @@
 
   export let hasResult = false
   export let yay = true
-  export let subtitle
+  export let subtitle = null
   export let tooltip = null, tooltipTitle = null
 </script>
 

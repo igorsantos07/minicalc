@@ -20,7 +20,7 @@
     "dev": "vite",
     "build": "npm run theme && vite build",
     "build-gh": "npm run build -- --base=/minicalc/",
-    "pkg": "npm run build && cp manifest.json dist/ && cd dist && zip -q -FS -r ../minicalc.zip . && rm manifest.json && cd ..",
+    "pkg": "npm run build && cd dist && zip -q -FS -r ../minicalc.zip . && cd ..",
     "theme": "npm run theme-light && npm run theme-dark",
     "theme-light": "smui-theme compile public/theme-light.css -i src/styles/theme/light",
     "theme-dark": "smui-theme compile public/theme-dark.css -i src/styles/theme/dark"

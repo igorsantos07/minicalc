@@ -2,7 +2,7 @@
   import Paper from '@smui/paper'
   import Description from './_Description.svelte'
 
-  export let desc = null
+  export let desc = null, large = false
 </script>
 
 {#if $$slots.desc}
@@ -11,7 +11,7 @@
   <Description>{desc}</Description>
 {/if}
 
-<main>
+<main class:large>
   <Paper elevation="3">
     <slot name="input"></slot>
   </Paper>
@@ -26,16 +26,19 @@
     display: flex;
     justify-content: center;
 
-    @include breakpoint-tiny {
+    @mixin columns {
       flex-direction: column;
       align-items: center;
     }
+
+    @include breakpoint-tiny { @include columns }
+    @include breakpoint-not-big { &.large { @include columns } }
 
     :global .smui-paper {
       &:first-of-type {
         width: 240px;
         max-width: 300px;
-        @include breakpoint-big { margin-right: 20px; }
+        @include breakpoint-not-tiny { margin-right: 20px; }
       }
       hr {
         margin: 8px -18px;

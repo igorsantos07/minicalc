@@ -4,8 +4,26 @@
   }
 }
 
-@mixin breakpoint-big() {
+@mixin breakpoint-not-tiny() {
   @media (min-width: 376px) {
+    @content;
+  }
+}
+
+@mixin breakpoint-mid() {
+  @media (min-width: 376px) and (max-width: 579px) {
+    @content;
+  }
+}
+
+@mixin breakpoint-big() {
+  @media (min-width: 580px) {
+    @content;
+  }
+}
+
+@mixin breakpoint-not-big() {
+  @media (max-width: 579px) {
     @content;
   }
 }

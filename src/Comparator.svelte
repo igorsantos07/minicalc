@@ -36,7 +36,7 @@
   }
 </script>
 
-<Content desc="Compara papéis comuns de Renda Fixa, tanto os que pagam IR quanto os isentos.">
+<Content large desc="Compara papéis comuns de Renda Fixa, tanto os que pagam IR quanto os isentos.">
   <svelte:fragment slot="input">
     <InputNumber label="CDI" suffix="%" variant="outlined" bind:value={cdi}/>
     <hr/>

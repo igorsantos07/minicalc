@@ -18,6 +18,7 @@
   },
   "scripts": {
     "dev": "vite",
+    "init": "npm install && npm run theme",
     "build": "npm run theme && vite build",
     "build-gh": "npm run build -- --base=/minicalc/",
     "pkg": "npm run build && cd dist && zip -q -FS -r ../minicalc.zip . && cd ..",

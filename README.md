@@ -13,6 +13,7 @@ O projeto é empacotado como uma extensão pro Chrome, mas também é acessível
 - [svelte-spa-router](https://github.com/ItalyPaleAle/svelte-spa-router): é mais clean rotear com um objeto JS do que com componentes JSX ([svelte-routing](https://github.com/EmilTholin/svelte-routing), [svelte-navigator](https://github.com/mefechoel/svelte-navigator)). Another, slightly more complex option could be [svelte-router](https://github.com/jorgegorka/svelte-router#layouts-and-route-info).
 
 ## Comandos principais
+- `npm run init`: prepara tudo apõs o clone inicial
 - `npm run dev`: dev server
   - `npm run dev -- --host`: aberto na rede
 - `npm run build`: compila o JS e cria o ZIP pra enviar pro [Chrome Web Store Dev Console](https://chrome.google.com/webstore/devconsole)

@@ -19,6 +19,12 @@
 @include paper-color(success, theme.$green-200);
 @include paper-color(error, theme.$red-200);
 
+@media (prefers-color-scheme: dark) {
+  @include paper-color(disabled, theme.$grey-800, null, theme.$grey-100);
+  @include paper-color(success, theme.$green-800);
+  @include paper-color(error, theme.$red-900);
+}
+
 .smui-paper {
   padding: 1rem;
   + .smui-paper { margin-top: 1rem }

@@ -8,7 +8,7 @@
   import { interestYtoD, irpf } from './util'
 
   let sameDates
-  let useCDI = true, start, end, initial, pct, cdi = 13.65
+  let useCDI = true, start, end, initial, pct, cdi = 13.15
   let grossPerYear, gross, net, days, workDays, result, total, hasResult, subtitle
 
   $: if (start && end) {

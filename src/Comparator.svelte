@@ -12,7 +12,7 @@
 
   let hasResult
   let cdi     = 11.65
-  let months = 6, value = 1000, lci = 85, lcipre, cdb = 110, cdbpre
+  let months, value, lci = 85, lcipre, cdb = 110, cdbpre
   let results = [
     new Result(Result.TYPE.LCI_POS, 'LCI/LCA pós'),
     new Result(Result.TYPE.CDB_POS, 'CDB/LC pós'),

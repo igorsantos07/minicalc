@@ -6,8 +6,11 @@
 html, body {
   background-color: var(--theme-background);
   color: var(--theme-on-surface);
+  min-width: 320px;
 }
 a { color: var(--theme-secondary); }
+
+.muted { opacity: 0.5 !important; }
 
 //region remove input[type=number] spinners
 input::-webkit-outer-spin-button,
@@ -49,11 +52,22 @@ input[type=number] {
   &__cell {
     &[role=header] { font-weight: bold }
     &--numeric { font-family: var(--monospace) }
+    &.difference {
+      h6 { font-size: small }
+      tr:has(&) {
+        height: auto;
+        opacity: 0.75;
+        font-style: italic;
+      }
+    }
   }
   &--glass {
-    background-color: rgba(255,255,255,0.5);
-    @media (prefers-color-scheme: dark) {
-      background-color: rgba(0,0,0,0.3);
+    background-color: transparent;  //moves the bg to the cell, so we can opacify it on the diff rows
+    .mdc-data-table__cell {
+      background-color: rgba(255, 255, 255, 0.5);
+      @media (prefers-color-scheme: dark) {
+        background-color: rgba(0, 0, 0, 0.3);
+      }
     }
   }
 }

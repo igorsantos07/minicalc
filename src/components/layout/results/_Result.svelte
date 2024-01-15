@@ -5,13 +5,20 @@
   export let type
   export let n
   export let small = false
+  export let difference = false
 </script>
 
 <Row>
   <Cell>{title}</Cell>
-  <Cell numeric>
+  <Cell numeric class={difference && 'difference'}>
     <h6 style:margin={0}>
-      {#if small}
+      {#if !n}
+        <small>
+          <em class="muted">
+            <svelte:component this={type} {n}/>
+          </em>
+        </small>
+      {:else if small}
         <small>
           <b>
             <svelte:component this={type} {n}/>

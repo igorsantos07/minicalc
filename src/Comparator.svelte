@@ -1,17 +1,27 @@
 <script>
   import HelperText from '@smui/textfield/helper-text'
+  import { sortBy } from 'lodash-es'
   import InputNumber from './components/form/InputNumber.svelte'
   import Content, { Cash, Results } from './components/layout/Content'
   import RawPct from './components/num/Pct.svelte'
   import Tooltip from './components/Tooltip.svelte'
+  import Result from './Result'
   import { interestYtoM, irpf } from './util'
 
   const urlCRICRA = 'https://www.infomoney.com.br/guias/cri-cra/#:~:text=Por%20outro%20lado%2C%20uma%20desvantagem%20%C3%A9%20o%20fato%20de%20que%20CRIs%20e%20CRAs%20n%C3%A3o%20s%C3%A3o%20cobertos%20pelo%20Fundo%20Garantidor%20de%20Cr%C3%A9ditos%20(FGC).'
 
   let hasResult
   let cdi     = 11.65
-  let months, value, lci = 85, lcipre, cdb = 110, cdbpre
-  let results = { lci: null, lcipre: null, cdb: null, cdbpre: null }
+  let months = 6, value = 1000, lci = 85, lcipre, cdb = 110, cdbpre
+  let results = [
+    new Result(Result.TYPE.LCI_POS, 'LCI/LCA pós'),
+    new Result(Result.TYPE.CDB_POS, 'CDB/LC pós'),
+    new Result(Result.TYPE.LCI_PRE, 'LCI/LCA pré'),
+    new Result(Result.TYPE.CDB_PRE, 'CDB/LC pré')
+  ]
+  function resultFor(key) {
+    return results.find(r => r.key == key)
+  }
 
   function fullInterest(interest, withCDI = false) {
     let finalInterest = withCDI?
@@ -24,13 +34,13 @@
     return value + (value * (finalInterest - 1) * (1-irpf(months * 30)))
   }
 
-  $: if (cdi && months && value && lci && lcipre && cdb && cdbpre) {
-    hasResult      = true
-
-    results.lci    = value * fullInterest(lci, true)
-    results.lcipre = value * fullInterest(lcipre)
-    results.cdb    = applyIRPF(value, cdb, true)
-    results.cdbpre = applyIRPF(value, cdbpre)
+  $: if (cdi && months && value && (lci || lcipre || cdb || cdbpre)) {
+    resultFor(Result.TYPE.LCI_POS).value = !lci?    false : value * fullInterest(lci, true)
+    resultFor(Result.TYPE.LCI_PRE).value = !lcipre? false : value * fullInterest(lcipre)
+    resultFor(Result.TYPE.CDB_POS).value = !cdb?    false : applyIRPF(value, cdb, true)
+    resultFor(Result.TYPE.CDB_PRE).value = !cdbpre? false : applyIRPF(value, cdbpre)
+    results   = sortBy(results, 'value').reverse()
+    hasResult = true
   } else {
     hasResult = false
   }
@@ -69,17 +79,21 @@
     </section>
   </svelte:fragment>
 
-  <!--  FIXME: sort the results, maybe colorize then, and show in-between the difference between each position -->
+  <!--  FIXME: maybe colorize results, and show in-between the difference between each position -->
   <Results slot="output" {hasResult}
            tooltipTitle='"Tá diferente do que eu vi em outro site!"'
            tooltip="Isso é esperado, visto que há diferentes metodologias de calcular o rendimento final... <em>São 30 ou 31 dias no mês? E dias úteis, 20, 21 ou 22? E no ano? Como considerar o juros mensal ou anual vs. dias no período investido?</em><br/>O importante é que a comparação vai estar precisa, visto que todos os valores aqui usam a mesma metodologia 🙃">
     <div slot="subtitle" style:display={months? 'block' : 'none'}>
       <RawPct prefix="IRPF:" n={irpf(months * 30)}/>
     </div>
-    <Cash n={results.lci} title="LCI/LCA pós"/>
-    <Cash n={results.cdb} title="CDB/LC pós"/>
-    <Cash n={results.cdbpre} title="CDB/LC pré"/>
-    <Cash n={results.lcipre} title="LCI/LCA pré"/>
+
+    {#each results as result, i}
+      <Cash n={result.value} title={result.label}/>
+      {@const next = results[i+1]}
+      {#if next && result.value && next.value}
+        <Cash difference title="Diferença" n={result.value - next.value}/>
+      {/if}
+    {/each}
   </Results>
 </Content>
 

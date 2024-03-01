@@ -12,7 +12,7 @@
 <script>
   export let n
   export let prefix = ''
-  /** @type "cash"|"pct" */
+  /** @type {'cash'|'pct'} */
   export let type
 
   let fmt

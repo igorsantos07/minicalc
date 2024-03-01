@@ -5,13 +5,14 @@
   import Content, { Cash, Results } from './components/layout/Content'
   import RawPct from './components/num/Pct.svelte'
   import Tooltip from './components/Tooltip.svelte'
+  import { CDI } from './globals'
   import Result from './Result'
   import { interestYtoM, irpf } from './util'
 
   const urlCRICRA = 'https://www.infomoney.com.br/guias/cri-cra/#:~:text=Por%20outro%20lado%2C%20uma%20desvantagem%20%C3%A9%20o%20fato%20de%20que%20CRIs%20e%20CRAs%20n%C3%A3o%20s%C3%A3o%20cobertos%20pelo%20Fundo%20Garantidor%20de%20Cr%C3%A9ditos%20(FGC).'
 
   let hasResult
-  let cdi     = 11.65
+  let cdi = CDI
   let months, value, lci = 85, lcipre, cdb = 110, cdbpre
   let results = [
     new Result(Result.TYPE.LCI_POS, 'LCI/LCA pós'),

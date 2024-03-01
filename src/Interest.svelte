@@ -5,10 +5,11 @@
   import TwoSidedSwitch from './components/form/TwoSidedSwitch.svelte'
   import Content, { Cash, Pct, Results } from './components/layout/Content'
   import Tooltip from './components/Tooltip.svelte'
+  import { CDI } from './globals'
   import { interestYtoD, irpf } from './util'
 
   let sameDates
-  let useCDI = true, start, end, initial, pct, cdi = 11.65
+  let useCDI = true, start, end, initial, pct, cdi = CDI
   let grossPerYear, gross, net, days, workDays, result, total, hasResult, subtitle
 
   $: if (start && end) {

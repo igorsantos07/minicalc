@@ -39,7 +39,7 @@
   }
 </script>
 
-<Content large desc="Vale mais a pena o desconto do pagamento à vista, ou esticar num parcelamento?">
+<Content large desc="Vale mais a pena o desconto do pagamento à vista, ou esticar num parcelamento enquanto o restante do dinheiro rende?">
   <svelte:fragment slot="input">
     <InputNumber label="CDI" suffix="%" variant="outlined" bind:value={cdi}/>
     <InputNumber label="Rendimento do CDI" suffix="%" bind:value={percent}/>

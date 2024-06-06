@@ -17,7 +17,7 @@
 
 <style lang="scss">
   span {
-    text-decoration: underline dotted black;
+    text-decoration: underline dotted white;
     cursor: help;
   }
 </style>

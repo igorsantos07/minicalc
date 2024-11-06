@@ -1,0 +1,70 @@
+{
+  "id": "br.com.igorsantos.minicalc",
+  "name": "Mini Calculadora de finanças",
+  "short_name": "MiniCalc",
+  "theme_color": "#81C784",
+  "background_color": "#212121",
+  "display": "standalone",
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  },
+  "scope": "/minicalc",
+  "start_url": "/minicalc",
+  "description": "Calculadora de finanças básicas: diferença percentual entre valores, juros pelo CDI, comparador de renda fixa e de compras à vista ou parceladas.",
+  "prefer_related_applications": false,
+  "orientation": "any",
+  "dir": "auto",
+  "lang": "en",
+  "categories": [
+    "productivity",
+    "utilities",
+    "finance"
+  ],
+  "edge_side_panel": {
+    "preferred_width": 370
+  },
+  "icons": [
+    {
+      "src": "/minicalc/icons/icon-512.png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/minicalc/icons/icon-192.png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/minicalc/icons/icon-128.png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "/minicalc/icons/icon-48.png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "/minicalc/icons/icon-19.png",
+      "sizes": "19x19"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/minicalc/screenshots/2022-08-17.png",
+      "form_factor": "narrow",
+      "sizes": "377x854"
+    },
+    {
+      "src": "/minicalc/screenshots/2022-08-17_1.png",
+      "form_factor": "narrow",
+      "sizes": "377x854"
+    },
+    {
+      "src": "/minicalc/screenshots/2022-08-17_2.png",
+      "form_factor": "narrow",
+      "sizes": "377x854"
+    },
+    {
+      "src": "/minicalc/screenshots/combo.png",
+      "form_factor": "wide",
+      "sizes": "1280x800"
+    }
+  ]
+}

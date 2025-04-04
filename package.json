@@ -48,6 +48,6 @@
     "svelte": "^3.49.0",
     "svelte-preprocess": "^4.10.7",
     "svelte-spa-router": "^3.3.0",
-    "vite": "^6.2.4"
+    "vite": "^6.2.5"
   }
 }

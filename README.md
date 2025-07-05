@@ -2,7 +2,7 @@
 
 Eu frequentemente usava uma planilha do Google Sheets para fazer algumas contas rotineiras. Desisti de ficar preso a um programa complexo como o Sheets pra umas continhas, e resolvi estudar novas tecnologias pra implementar elas :)
 
-O projeto é empacotado como uma extensão pro Chrome, mas também é acessível em [TODO].
+O projeto é empacotado como uma extensão pro Chrome, mas também é acessível em https://igorsantos07.github.io/minicalc/.
 
 >Nota: o projeto é documentado em português pois é mais fácil, porém os commits e a maior parte do código estão em inglês pois é no que estou mais acostumado a programar ¯\_(ツ)_/¯
 
@@ -16,5 +16,6 @@ O projeto é empacotado como uma extensão pro Chrome, mas também é acessível
 - `npm run init`: prepara tudo apõs o clone inicial
 - `npm run dev`: dev server
   - `npm run dev -- --host`: aberto na rede
-- `npm run build`: compila o JS e cria o ZIP pra enviar pro [Chrome Web Store Dev Console](https://chrome.google.com/webstore/devconsole)
+- `npm run build-gh`: compila o JS para ser utilizado no GitHub Pages
+- `npm run pkg`: compila o JS e cria o ZIP pra enviar pro [Chrome Web Store Dev Console](https://chrome.google.com/webstore/devconsole)
 - `npm run theme`: [compila o CSS do tema do Material UI](https://sveltematerialui.com/THEMING.md#building-your-theme). Necessário executar sempre que adicionar algum componente novo do SMUI, e quando clonar o projeto (os CSS gerados dificilmente mudam, mas estão ignorados).

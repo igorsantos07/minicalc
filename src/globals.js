@@ -1,1 +1,1 @@
-export const CDI = 15
+export const CDI = 14.15

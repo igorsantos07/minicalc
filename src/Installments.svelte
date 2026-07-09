@@ -7,7 +7,7 @@
 
   let hasResult
   let cdi = CDI
-  let months, value, installment, percent = 110
+  let months, value, installment, percent = 105
   let rawDiff, simpleInterest, installPaid, installInterest, diff, best
 
   function fullInterest(value, months) {
